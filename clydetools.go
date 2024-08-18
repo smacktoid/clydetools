@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
 )
@@ -161,7 +162,8 @@ func getFixtures() [10]string {
 		fmt.Println(err)
 		return [10]string{}
 	}
-	req.Header.Add("x-rapidapi-key", "d932a7c27dd5f4e3eace3d48c0378b40")
+	apiKey := os.Getenv("CLYDETOOLS_API_KEY")
+	req.Header.Add("x-rapidapi-key", apiKey)
 	req.Header.Add("x-rapidapi-host", "v3.football.api-sports.io")
 
 	res, err := client.Do(req)
