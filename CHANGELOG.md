@@ -1,3 +1,11 @@
+## [0.3.1](https://github.com/smacktoid/clydetools/compare/v0.3.0...v0.3.1) (2024-08-19)
+
+
+### Bug Fixes
+
+* Adding README ([081b764](https://github.com/smacktoid/clydetools/commit/081b76486b18127c556655adae2377214c2b68d8))
+* Remove extra printing of API key error ([aa2d191](https://github.com/smacktoid/clydetools/commit/aa2d191fd6e48d902c3c154aea57a5fb82c96ae6))
+
 # [0.3.0](https://github.com/smacktoid/clydetools/compare/v0.2.0...v0.3.0) (2024-08-19)
 
 
