@@ -8,7 +8,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     environment:
-      name: Configure Action Environment
+      name: Action Environment
     steps:
       - name: Checkout
         uses: actions/checkout@v4
