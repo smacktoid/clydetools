@@ -155,7 +155,6 @@ func parseFixtures(body []byte) [10]string {
 func readApiKey() (string, error) {
 	apiKey := os.Getenv("CLYDETOOLS_API_KEY")
 	if apiKey == "" {
-		fmt.Println("CLYDETOOLS_API_KEY is not set. Cannot load fixtures")
 		return "", errors.New("CLYDETOOLS_API_KEY is not set")
 	}
 	return apiKey, nil
