@@ -29,4 +29,4 @@ func main() {
 }
 ```
 
-A valid (Football API)[] key must be present on the environment as `CLYDETOOLS_API_KEY` for 
+A valid [API-Football](https://www.api-football.com/) key must be present on the environment as `CLYDETOOLS_API_KEY` for the package to work correctly.
