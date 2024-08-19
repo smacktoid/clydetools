@@ -1,3 +1,10 @@
+## [0.3.2](https://github.com/smacktoid/clydetools/compare/v0.3.1...v0.3.2) (2024-08-19)
+
+
+### Bug Fixes
+
+* README link format error ([1c5d068](https://github.com/smacktoid/clydetools/commit/1c5d0682418d8f3cca03e7ddd07a8d00a63ae694))
+
 ## [0.3.1](https://github.com/smacktoid/clydetools/compare/v0.3.0...v0.3.1) (2024-08-19)
 
 
