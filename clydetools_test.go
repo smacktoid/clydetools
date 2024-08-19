@@ -32,3 +32,12 @@ func TestGetCurrentSeasonYearReturnsLastYearBeforeAugust(t *testing.T) {
 		t.Fatalf(`GetCurrentSeasonYear() should return the previous year if it is invoked before August but got %s`, year)
 	}
 }
+
+func TestGetFixturesFailsIfNoAPIKeyIsSet(t *testing.T) {
+	_, actual := GetFixtures()
+
+	Expected := "CLYDETOOLS_API_KEY is not set"
+	if actual.Error() != Expected {
+		t.Errorf("Error actual = %v, and Expected = %v.", actual, Expected)
+	}
+}

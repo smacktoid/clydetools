@@ -2,6 +2,7 @@ package clydetools
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -151,38 +152,39 @@ func parseFixtures(body []byte) [10]string {
 	return fixtures
 }
 
-func getFixtures() [10]string {
+func readApiKey() (string, error) {
+	apiKey := os.Getenv("CLYDETOOLS_API_KEY")
+	if apiKey == "" {
+		fmt.Println("CLYDETOOLS_API_KEY is not set. Cannot load fixtures")
+		return "", errors.New("CLYDETOOLS_API_KEY is not set")
+	}
+	return apiKey, nil
+}
+
+func GetFixtures() ([10]string, error) {
 	url := "https://v3.football.api-sports.io/fixtures?league=" + leageTwoLeagueId + "&season=" + GetCurrentSeasonYear() + "&team=" + clydeTeamId + "&next=10"
 	method := "GET"
 
 	client := &http.Client{}
-	req, err := http.NewRequest(method, url, nil)
+	req, _ := http.NewRequest(method, url, nil)
+	apiKey, err := readApiKey()
 
 	if err != nil {
 		fmt.Println(err)
-		return [10]string{}
+		return [10]string{}, err
 	}
-	apiKey := os.Getenv("CLYDETOOLS_API_KEY")
+
 	req.Header.Add("x-rapidapi-key", apiKey)
 	req.Header.Add("x-rapidapi-host", "v3.football.api-sports.io")
 
-	res, err := client.Do(req)
-	if err != nil {
-		fmt.Println(err)
-		return [10]string{}
-	}
+	res, _ := client.Do(req)
 	defer res.Body.Close()
 
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
-		return [10]string{}
+		return [10]string{}, err
 	}
 
-	return parseFixtures(body)
-}
-
-func GetFixtures() [10]string {
-	var fixtures [10]string = getFixtures()
-	return fixtures
+	return parseFixtures(body), nil
 }
