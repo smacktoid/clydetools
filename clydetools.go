@@ -146,7 +146,8 @@ func parseFixtures(body []byte) [10]string {
 	for i, value := range fixturesResponse.Response {
 		home := value.Teams.Home.Name
 		away := value.Teams.Away.Name
-		fixture := fmt.Sprintf("%s vs %s", home, away)
+		date := value.Fixture.Date
+		fixture := fmt.Sprintf("%s vs %s - %s", home, away, date)
 		fixtures[i] = fixture
 	}
 	return fixtures
