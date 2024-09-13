@@ -139,6 +139,17 @@ func GetCurrentSeasonYear() string {
 	return strconv.Itoa(year)
 }
 
+func parseDate(date string) string {
+	t, err := time.Parse(time.RFC3339, date)
+	if err != nil {
+		fmt.Println("Error parsing time:", err)
+		return "Unknown Date"
+	}
+
+	// Format the time in the desired format
+	return t.Format("02-01-2006")
+}
+
 func parseFixtures(body []byte) [10]string {
 	var fixtures [10]string
 	var fixturesResponse Root
@@ -146,7 +157,7 @@ func parseFixtures(body []byte) [10]string {
 	for i, value := range fixturesResponse.Response {
 		home := value.Teams.Home.Name
 		away := value.Teams.Away.Name
-		date := value.Fixture.Date
+		date := parseDate(value.Fixture.Date)
 		fixture := fmt.Sprintf("%s vs %s - %s", home, away, date)
 		fixtures[i] = fixture
 	}
