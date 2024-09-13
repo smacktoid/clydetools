@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/smacktoid/clydetools/compare/v0.4.0...v0.4.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* format the date better ([3b694e7](https://github.com/smacktoid/clydetools/commit/3b694e7eaaaa70f64a4d16ccd7d6a90c54b8b031))
+
 # [0.4.0](https://github.com/smacktoid/clydetools/compare/v0.3.2...v0.4.0) (2024-09-13)
 
 
