@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/smacktoid/clydetools/compare/v0.3.2...v0.4.0) (2024-09-13)
+
+
+### Features
+
+* Adding date into the fixture results ([ffbfaf7](https://github.com/smacktoid/clydetools/commit/ffbfaf73583371609e360cc3693571e5ea97c075))
+
 ## [0.3.2](https://github.com/smacktoid/clydetools/compare/v0.3.1...v0.3.2) (2024-08-19)
 
 
